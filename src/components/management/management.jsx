@@ -4,11 +4,9 @@ import axios from "axios";
 import { BsTrash } from 'react-icons/bs';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
-import {baseUrl} from '../../App';
+import { baseUrl } from '../../App';
 
 function Management({ props }) {
-
-  console.log(baseUrl);
 
   const navigate = useNavigate();
 
@@ -16,19 +14,21 @@ function Management({ props }) {
       const faltantes = catalogo1.filter(
         (itemCatalogo) => (catalogo2.find(item => item.id === itemCatalogo.id) === undefined)
       )
-  
+
       return faltantes;
   }
 
+  console.log(filmesFaltantes.faltantes)
+
     function deleteData(id) {
       axios.delete(`${baseUrl}/films/${id}`)
-           .then( () => {navigate('/');} )
+           .then( () => {navigate(0)} )
            .catch((error) => { console.log(error) })
     } 
 
   function addData(film) {
       axios.post(baseUrl, {id:film.id, title: film.title,image: film.image, movie_banner: film.movie_banner, description: film.description,director: film.director, producer: film.producer})
-           .then(() => {navigate('/management');})
+           .then(() => {navigate(0)})
            .catch((error) => { console.log(error); });
   }
   

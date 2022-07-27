@@ -8,16 +8,39 @@ function Home({data}) {
   
   const [isActive, setIsActive] = React.useState(false);
 
+
+  
+  /*
+  const arr = [
+    { "value": "abc", "checked": false },
+    { "value": "xyz", "checked": false },
+    { "value": "lmn", "checked": true }
+  ]
+  
+  const filtered = arr.reduce((a, o) => (o.checked && a.push(o.value), a), [])      
+  console.log(filtered)
+  
+
+  let array=[[1,2,3],{empresa:"apple",algo:"mango",fruta:"grapes"}]
+
+  console.log(array[1]{"apple"})
+
+  const filtered = data.reduce((a, o) => (o.checked && a.push(o.value), a), [])      
+  console.log(filtered)
+*/
+
+
+
   function toggle() {
     setIsActive(current => !current)
   }
-  
+
   return (
     <main id='home'>
       
         <div className='home-nav'>
           <div className='nav-left'>
-                <Link to="/"><button className='logo-bnt'><img className='logo-left' src={logo} /></button></Link>
+                <Link to="/"><button className='logo-bnt'><img alt="logo" className='logo-left' src={logo} /></button></Link>
             </div>
             <div className='nav-right'>
                 <span className='spacer'></span>
@@ -25,21 +48,9 @@ function Home({data}) {
                 <input className={isActive ? 'show' : 'hide'} type='text' placeholder='pesquisar' />
             </div>
         </div>
-      
-        <img className="home-banner" src="https://image.tmdb.org/t/p/original/kjXdW5H3myRBmTMYgKayjphr2FA.jpg" />
-      
+        <img alt="banner" className="home-banner" src="{banner}" />
     </main>
   );
 }
 
 export default Home;
-/*
-  { data.map((banner) => { 
-        {console.log(banner)}
-        return <div key={banner.id}>
-                  <img src={banner.movie_banner} />
-                </div>                
-      }
-    )
-  }
-*/

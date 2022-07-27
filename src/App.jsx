@@ -6,7 +6,7 @@ import Film from './components/film/film';
 import Catalog from "./components/catalog/catalog";
 import Management from "./components/management/management";
 import Footer from './components/footer/footer';
-import Context from './components/context'
+import Context from './components/context';
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 export const baseUrl = 'https://filmes-api-back-end.vercel.app';
@@ -35,7 +35,7 @@ function App() {
     <>
       <Context.Provider value={{modal, setModal}}>
           <Routes>
-            <Route path="/" element={<><Home /><Catalog data={data}/><Footer /></>} />
+            <Route path="/" element={<><Home data={data}/><Catalog data={data}/><Footer /></>} />
             <Route path="/management" element={<Management props={props}/>} />
             <Route path="/film/:name" element={<Film />} />  
           </Routes>
