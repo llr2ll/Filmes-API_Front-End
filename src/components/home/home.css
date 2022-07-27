@@ -1,0 +1,33 @@
+.home-banner{ width: 100%; height: 75vh; }
+
+.home-nav{ position: absolute; display: flex; width: 100%; align-items: center; background: transparent; }
+
+.nav-left{ padding: 0 100px 0; width: 50%; }
+
+.btn-left{ cursor: pointer; font-size: 18px; width: 50px; height: 30px; background: none; margin-right: 30px; }
+
+.logo-bnt{ background: none; border:none; }
+
+.logo-bnt:hover{ cursor: pointer; }
+
+.logo-left{ height: 150px; }
+
+.nav-right{ display: flex; width: 50%; justify-content: center; justify-content: flex-end; margin-right: 5%; }
+
+.btn-right{ cursor: pointer; display: flex; align-items: center; margin-left: 15px; background: none; border: none; }
+
+.spacer{ border-right: 2px solid red; }
+
+.btn-right h2{ color: red; margin-right: 20px; font-size: 20px;}
+
+.nav-icon{ color: red; width: 50px; height: 30px; filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(27deg) brightness(102%) contrast(103%); }
+
+.hide{ display: none; }
+
+.show{ position: absolute; display: block; border-radius: 10px; border: none; padding: 10px; transform: translate(12%, 150%); }
+
+@media(max-width:768px){ .nav-left{ padding: 0 20px 0; } .home-banner{ height: 50vh; } }
+
+@media(max-width:425px){ .show{ transform: translate(8%, 150%); } .home-banner{ height: 35vh; } }
+
+@media(max-width:375px){ .logo-left{ height: 100px; } .show{width: 150px; transform: translate(0%, 150%); } .home-banner{ height: 30vh; } }

@@ -1,0 +1,18 @@
+#management { display: flex; flex-wrap: wrap; justify-content: center;  margin: 5% 0; }
+
+.management{ display: flex; margin: 2%; }
+
+.management img{ height: 200px; }
+
+.text-1{margin-top: 5%; text-align: center; font-size: 50px; color: #ffffff; text-shadow: 0 0 0.2em 
+        rgb(108, 161, 197), 0 0 0.2em rgb(108, 161, 197),0 0 0.2em rgb(108, 161, 197);}
+
+.text-2{ margin-top: 5%; text-align: center; font-size: 50px; color: #ffc2ad; text-shadow: red 0.1em 0.1em 0.1em; }
+
+.img1 {width: 40px; height: 40px; color: rgb(60, 82, 195); }
+
+.img2 {width: 40px; height: 40px; color: red; }
+
+.btn-manage {position: absolute;  background: none; border: none; transform: translate(80%, 180%);}
+
+.btn-manage:hover{ cursor: pointer; }

@@ -1,0 +1,9 @@
+.add { display: flex; justify-content: center; margin: 10% 0; text-decoration: none; }
+
+.btn{ background: #00aaff; color: white; padding: 2% 5%; border-radius: 10px; border: none; font-size: 22px; }
+
+.btn:hover{ cursor: pointer; }
+
+.btn:active{ background: green; }
+
+@media(max-width:425px){ .btn{adding: 8% 8%;} }
