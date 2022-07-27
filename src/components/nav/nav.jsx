@@ -31,7 +31,7 @@ function Nav() {
           </a>
           <a onClick={toggle}><BsPersonFill /></a>
       </nav>
-      {/*<Login />*/}
+      <Login />
       <Helmet> <style>{`body { background-color: ${background}; }`}</style> </Helmet>
     </main>
   );

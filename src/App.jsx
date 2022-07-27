@@ -9,16 +9,18 @@ import Footer from './components/footer/footer';
 import Context from './components/context'
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
+export const baseUrl = 'https://filmes-api-back-end.vercel.app';
 
 function App() {
 
   const [herokuData, setHerokuData] = React.useState([])
   const [data, setData] = React.useState([])
   const [modal, setModal] = React.useState(false);
+
   let props = {herokuData,data}
 
   React.useEffect(() => {
-     axios.get('https://filmes-api-back-end.vercel.app')
+     axios.get(baseUrl)
           .then((res) => { setData(res.data) })
           .catch((error) => { console.log(error) });
   }, [])
@@ -37,7 +39,7 @@ function App() {
             <Route path="/management" element={<Management props={props}/>} />
             <Route path="/film/:name" element={<Film />} />  
           </Routes>
-          {/*<Nav />*/}
+          <Nav />
       </Context.Provider>
     </>
   );

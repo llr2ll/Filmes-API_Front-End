@@ -6,4 +6,4 @@
 
 .btn:active{ background: green; }
 
-@media(max-width:425px){ .btn{adding: 8% 8%;} }
+@media(max-width:425px){ .btn{padding: 8% 8%;} }
