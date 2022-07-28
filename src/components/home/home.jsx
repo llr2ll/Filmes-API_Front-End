@@ -7,29 +7,32 @@ import './home.css';
 function Home({data}) {
   
   const [isActive, setIsActive] = React.useState(false);
+  let movie;
+
+
+
 
 
   
-  /*
-  const arr = [
-    { "value": "abc", "checked": false },
-    { "value": "xyz", "checked": false },
-    { "value": "lmn", "checked": true }
-  ]
-  
-  const filtered = arr.reduce((a, o) => (o.checked && a.push(o.value), a), [])      
-  console.log(filtered)
-  
+  const [counter, setCounter] = React.useState(5);
+  let length = data.length;
 
-  let array=[[1,2,3],{empresa:"apple",algo:"mango",fruta:"grapes"}]
-
-  console.log(array[1]{"apple"})
-
-  const filtered = data.reduce((a, o) => (o.checked && a.push(o.value), a), [])      
-  console.log(filtered)
-*/
+  React.useEffect(() => {
+      const timer = counter > 0 && setInterval(() => setCounter(counter - 1), 3500);
+      return () => clearInterval(timer);
+      
+  }, [counter]);
 
 
+
+
+
+
+
+  (async function getBanner (data) {
+       let {movie_banner: Banner} = data[counter];
+      movie = Banner;
+  }) (data);
 
   function toggle() {
     setIsActive(current => !current)
@@ -48,7 +51,7 @@ function Home({data}) {
                 <input className={isActive ? 'show' : 'hide'} type='text' placeholder='pesquisar' />
             </div>
         </div>
-        <img alt="banner" className="home-banner" src="{banner}" />
+        <img alt="banner" className="home-banner" src={movie} />
     </main>
   );
 }
