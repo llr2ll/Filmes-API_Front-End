@@ -5,38 +5,33 @@ import { Link } from "react-router-dom";
 import './home.css';
 
 function Home({data}) {
-  
+
+  let [counter, setCounter] = React.useState(0);
   const [isActive, setIsActive] = React.useState(false);
   let movie;
-
-
-
-
-
-  
-  const [counter, setCounter] = React.useState(5);
-  let length = data.length;
-
-  React.useEffect(() => {
-      const timer = counter > 0 && setInterval(() => setCounter(counter - 1), 3500);
-      return () => clearInterval(timer);
-      
-  }, [counter]);
-
-
-
-
-
-
-
-  (async function getBanner (data) {
-       let {movie_banner: Banner} = data[counter];
-      movie = Banner;
-  }) (data);
 
   function toggle() {
     setIsActive(current => !current)
   }
+  
+  React.useEffect(() => {
+    //let num = await data.length
+    let interval
+    if(counter < 20){
+      interval = setInterval(() => {setCounter(counter + 1)}, 3500);
+    }else if (counter === 20){
+      clearInterval(interval)
+      setCounter(0)
+    }
+     return () => clearInterval(interval)
+  }, [counter]);
+
+
+
+  (async function getBanner (data) {
+       let {movie_banner: Banner} =  data[counter];
+       movie = Banner;
+  }) (data);
 
   return (
     <main id='home'>
