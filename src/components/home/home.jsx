@@ -6,18 +6,29 @@ import './home.css';
 
 function Home({data}) {
 
-  const [counter] = React.useState(2);
+  const [counter, setCounter] = React.useState(0);
   const [isActive, setIsActive] = React.useState(false);
   let movie;
 
   function toggle() { setIsActive(current => !current) }
 
-  (() => {
-      if(data.length > 0){
-          let {movie_banner: Banner} =  data[counter];
-          movie = Banner;
-      }
-  })()
+  (async function timer(data){
+    if(data.length > 0){
+      let {movie_banner: Banner} =  data[counter];
+      movie = Banner; 
+    }
+  })(data);
+  
+  React.useEffect(() => {  
+    let interval
+    if((data.length > 0)&&(counter < data.length)){
+      interval = setInterval(() => {setCounter(counter + 1)}, 3500);
+    }else if((data.length > 0)&&(counter === data.length)){
+      setCounter(0)
+      clearInterval(interval)
+    }
+     return () => clearInterval(interval)
+  }, [counter,data]);
 
   return (
     <main id='home'>
